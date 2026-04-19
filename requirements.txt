@@ -1,18 +1,21 @@
-aiohttp-jinja2==1.1.0
-aiohttp-session==2.7.0
-aiohttp==3.5.3
+aiohttp-jinja2==1.5              # was 1.1.0; minimum version compatible with Python 3.10+ (collections.Mapping removed)
+aiohttp-session==2.8.0          # was 2.7.0; minimum version compatible with Python 3.10+ (collections.MutableMapping removed)
+aiohttp==3.13.4                 # was 3.5.3; fixes CVE-2021-21330, CVE-2023-37276, CVE-2023-47627, CVE-2023-47641, CVE-2023-49081, CVE-2023-49082, CVE-2024-23334, CVE-2024-23829, CVE-2024-27306, CVE-2024-30251, CVE-2024-52304, CVE-2025-53643, and 14 more DoS/smuggling CVEs
 aiopg==0.15.0
-aioredis==1.2.0
-async-timeout==3.0.1      # via aiohttp, aioredis
-attrs==18.2.0             # via aiohttp
-chardet==3.0.4            # via aiohttp
-hiredis==0.3.1            # via aioredis
-idna==2.8                 # via yarl
-jinja2==2.10              # via aiohttp-jinja2
-markupsafe==1.1.0         # via jinja2
-multidict==4.5.2          # via aiohttp, yarl
-psycopg2==2.7.6.1         # via aiopg
-pyyaml==3.13
+aioredis==1.3.1                 # was 1.2.0; minimum version compatible with Python 3.10+ (asyncio.coroutine removed)
+aiohappyeyeballs>=2.5.0         # transitive via aiohttp>=3.10
+aiosignal>=1.4.0                # transitive via aiohttp>=3.10
+async-timeout==3.0.1            # via aioredis
+attrs>=17.3.0                   # via aiohttp
+frozenlist>=1.1.1               # transitive via aiohttp>=3.10
+hiredis>=0.3.1                  # via aioredis
+idna==3.7                       # was 2.8; fixes CVE-2024-3651 (DoS via quadratic complexity in idna.encode())
+jinja2==3.1.6                   # was 2.10; fixes CVE-2019-10906, CVE-2020-28493, CVE-2024-22195, CVE-2024-34064, CVE-2024-56326, CVE-2025-27516
+markupsafe>=2.0                 # was 1.1.0; required by jinja2>=3.0
+multidict>=4.5,<7.0             # was 4.5.2; required by aiohttp>=3.10
+propcache>=0.2.0                # transitive via aiohttp>=3.10
+psycopg2==2.7.6.1               # via aiopg
+pyyaml==6.0.2                   # was 3.13; fixes CVE-2017-18342 (RCE via yaml.load()), CVE-2020-14343 (RCE via full_load)
 trafaret-config==2.0.2
-trafaret==1.2.0
-yarl==1.3.0               # via aiohttp
+trafaret==2.1.0                 # was 1.2.0; minimum version compatible with Python 3.10+ (collections.Mapping removed)
+yarl>=1.17.0,<2.0               # was 1.3.0; required by aiohttp>=3.10
