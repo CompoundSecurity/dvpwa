@@ -143,7 +143,7 @@ async def evaluate(request: Request):
         if not student or not course:
             raise HTTPNotFound()
         try:
-            data = EVALUATE_SCHEMA.check_and_return(data)
+            data = EVALUATE_SCHEMA.check(data)
         except DataError as e:
             return {'errors': e.as_dict(),
                     'course': course,
