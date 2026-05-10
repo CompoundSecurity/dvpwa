@@ -9,8 +9,8 @@ def setup_redis(app: Application):
 
 async def _init_redis(app: Application):
     conf = app['config']['redis']
-    redis = await aioredis.create_pool((conf['host'], conf['port']),
-                                       db=conf['db'])
+    redis = await aioredis.create_redis_pool((conf['host'], conf['port']),
+                                            db=conf['db'])
     app['redis'] = redis
 
 
