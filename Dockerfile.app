@@ -1,4 +1,4 @@
-FROM python:alpine3.8
+FROM python:3.12-alpine
 
 RUN apk add --no-cache wget \
     && wget -O /usr/bin/wait-for https://raw.githubusercontent.com/eficode/wait-for/master/wait-for \
