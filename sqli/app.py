@@ -21,7 +21,6 @@ def init(argv):
     config = commandline.config_from_options(options, CONFIG_SCHEMA)
 
     app = Application(
-        debug=True,
         middlewares=[
             session_middleware,
             # csrf_middleware,
