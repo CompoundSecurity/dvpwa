@@ -1,25 +1,11 @@
 import logging
 
 from aiohttp import web
-from aiohttp.web_exceptions import HTTPForbidden, HTTPInternalServerError
+from aiohttp.web_exceptions import HTTPForbidden
 from aiohttp_jinja2 import render_template
-from aiohttp_session import session_middleware as session_middleware_, get_session
-from aiohttp_session.redis_storage import RedisStorage
+from aiohttp_session import get_session
 
 log = logging.getLogger(__name__)
-
-
-@web.middleware
-async def session_middleware(request, handler):
-    """Wrapper to Session Middleware factory.
-    """
-    # Do the trick, by passing app & handler back to original session
-    # middleware factory. Do not forget to await on results here as original
-    # session middleware factory is also awaitable.
-    app = request.app
-    storage = RedisStorage(app['redis'], httponly=False)
-    middleware = session_middleware_(storage)
-    return await middleware(request, handler)
 
 
 @web.middleware
